@@ -1,8 +1,8 @@
 package com.example.info_coehgns.service;
 
-import com.example.info_coehgns.dto.RequestDTO.ToDoRequestDTO;
-import com.example.info_coehgns.dto.ResponseDTO.ToDoResponseDTO;
-import com.example.info_coehgns.dto.RequestDTO.UpdateToDoRequestDTO;
+import com.example.info_coehgns.dto.requestdto.ToDoRequestDTO;
+import com.example.info_coehgns.dto.responsedto.ToDoResponseDTO;
+import com.example.info_coehgns.dto.requestdto.UpdateToDoRequestDTO;
 import com.example.info_coehgns.entity.ToDo;
 import com.example.info_coehgns.repository.ToDoRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,16 +26,16 @@ public class ToDoService {
                 .build()).toList();
     }
 
-    public void createToDo(ToDoRequestDTO ToDoRequestDto) {
+    public void createToDo(ToDoRequestDTO toDoRequestDTO) {
         ToDo toDo = ToDo.builder()
-                .isDone(ToDoRequestDto.isDone())
-                .description(ToDoRequestDto.getDescription())
+                .isDone(toDoRequestDTO.isDone())
+                .description(toDoRequestDTO.getDescription())
                 .build();
 
         toDoRepository.save(toDo);
     }
 
-    public ToDoResponseDTO ToDoFindById(int id) {
+    public ToDoResponseDTO toDoFindById(int id) {
          Optional<ToDo> optionalEntity =  toDoRepository.findById(id);
          if(optionalEntity.isEmpty()) {
              throw new IllegalArgumentException();

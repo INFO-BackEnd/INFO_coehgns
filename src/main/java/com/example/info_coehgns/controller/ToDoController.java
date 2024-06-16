@@ -1,9 +1,9 @@
 package com.example.info_coehgns.controller;
 
 import com.example.info_coehgns.service.ToDoService;
-import com.example.info_coehgns.dto.RequestDTO.ToDoRequestDTO;
-import com.example.info_coehgns.dto.ResponseDTO.ToDoResponseDTO;
-import com.example.info_coehgns.dto.RequestDTO.UpdateToDoRequestDTO;
+import com.example.info_coehgns.dto.requestdto.ToDoRequestDTO;
+import com.example.info_coehgns.dto.responsedto.ToDoResponseDTO;
+import com.example.info_coehgns.dto.requestdto.UpdateToDoRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,13 +21,13 @@ public class ToDoController {
     }
 
     @GetMapping("{id}")
-    public ToDoResponseDTO ToDoFindById(@PathVariable("id") int id) {
-        return toDoService.ToDoFindById(id);
+    public ToDoResponseDTO toDoFindById(@PathVariable("id") int id) {
+        return toDoService.toDoFindById(id);
     }
 
     @PostMapping
-    public void createToDo(@RequestBody ToDoRequestDTO toDoRequestDto) {
-        toDoService.createToDo(toDoRequestDto);
+    public void createToDo(@RequestBody ToDoRequestDTO toDoRequestDTO) {
+        toDoService.createToDo(toDoRequestDTO);
     }
 
     @PutMapping("{id}")

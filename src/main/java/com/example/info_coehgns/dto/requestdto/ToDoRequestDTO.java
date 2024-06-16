@@ -1,4 +1,4 @@
-package com.example.info_coehgns.dto.RequestDTO;
+package com.example.info_coehgns.dto.requestdto;
 
 import lombok.Data;
 
