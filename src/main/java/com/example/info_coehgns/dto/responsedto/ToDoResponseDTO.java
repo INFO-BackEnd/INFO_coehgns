@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 public class ToDoResponseDTO {
     private int id;
-    private String description;
+    private String content;
     private boolean isDone;
 }

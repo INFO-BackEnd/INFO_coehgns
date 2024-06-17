@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ToDoRequestDTO {
-    private String description;
+    private String content;
     private boolean isDone;
 }

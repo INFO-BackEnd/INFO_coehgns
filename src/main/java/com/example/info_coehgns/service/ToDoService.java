@@ -21,7 +21,7 @@ public class ToDoService {
 
         return toDoList.stream().map(toDo -> ToDoResponseDTO.builder()
                 .id(toDo.getId())
-                .description(toDo.getDescription())
+                .content(toDo.getContent())
                 .isDone(toDo.isDone())
                 .build()).toList();
     }
@@ -29,7 +29,7 @@ public class ToDoService {
     public void createToDo(ToDoRequestDTO toDoRequestDTO) {
         ToDo toDo = ToDo.builder()
                 .isDone(toDoRequestDTO.isDone())
-                .description(toDoRequestDTO.getDescription())
+                .content(toDoRequestDTO.getContent())
                 .build();
 
         toDoRepository.save(toDo);
@@ -43,7 +43,7 @@ public class ToDoService {
 
          return ToDoResponseDTO.builder()
                  .id(optionalEntity.get().getId())
-                 .description(optionalEntity.get().getDescription())
+                 .content(optionalEntity.get().getContent())
                  .isDone(optionalEntity.get().isDone())
                  .build();
     }

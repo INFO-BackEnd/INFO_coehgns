@@ -13,7 +13,7 @@ public class ToDo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String description;
+    private String content;
 
     private boolean isDone;
 
