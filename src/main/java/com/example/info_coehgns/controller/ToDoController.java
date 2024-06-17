@@ -5,6 +5,7 @@ import com.example.info_coehgns.dto.requestdto.ToDoRequestDTO;
 import com.example.info_coehgns.dto.responsedto.ToDoResponseDTO;
 import com.example.info_coehgns.dto.requestdto.UpdateToDoRequestDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,12 +27,12 @@ public class ToDoController {
     }
 
     @PostMapping
-    public void createToDo(@RequestBody ToDoRequestDTO toDoRequestDTO) {
+    public void createToDo(@RequestBody @Validated ToDoRequestDTO toDoRequestDTO) {
         toDoService.createToDo(toDoRequestDTO);
     }
 
     @PutMapping("{id}")
-    public void updateToDo(@PathVariable("id") int id, @RequestBody UpdateToDoRequestDTO updateToDoRequestDTO) {
+    public void updateToDo(@PathVariable("id") int id, @RequestBody @Validated UpdateToDoRequestDTO updateToDoRequestDTO) {
         toDoService.updateToDo(id, updateToDoRequestDTO);
     }
 
