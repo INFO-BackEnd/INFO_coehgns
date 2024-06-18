@@ -1,6 +1,5 @@
 package com.example.info_coehgns.dto.requestdto;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.Getter;
