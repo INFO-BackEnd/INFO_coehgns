@@ -8,6 +8,6 @@ import lombok.Data;
 public class ToDoRequestDTO {
     @NotNull(message = "content가 null 값일 수 없습니다.")
     private String content;
-    @NotBlank(message = "완료 여부가 비어있을 수 없습니다.")
+    @NotNull(message = "완료 여부가 null 값일 수 없습니다.")
     private boolean isDone;
 }
