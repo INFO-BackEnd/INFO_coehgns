@@ -65,6 +65,9 @@ public class ToDoService {
     }
 
     public void deleteToDo(Long id) {
+        if(!toDoRepository.existsById(id)) {
+            throw new RuntimeException("해당 id를 찾지 못함.");
+        }
         toDoRepository.deleteById(id);
     }
 
