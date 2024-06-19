@@ -7,9 +7,9 @@ import com.example.info_coehgns.entity.ToDo;
 import com.example.info_coehgns.repository.ToDoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -36,37 +36,31 @@ public class ToDoService {
     }
 
     public ToDoResponseDTO toDoFindById(Long id) {
-         Optional<ToDo> optionalEntity =  toDoRepository.findById(id);
-         if(optionalEntity.isEmpty()) {
-             throw new IllegalArgumentException();
-         }
+         ToDo toDo =  toDoRepository.findById(id)
+                 .orElseThrow(() -> new RuntimeException("해당 Id를 찾지 못함."));
 
          return ToDoResponseDTO.builder()
-                 .id(optionalEntity.get().getId())
-                 .content(optionalEntity.get().getContent())
-                 .isDone(optionalEntity.get().isDone())
+                 .id(toDo.getId())
+                 .content(toDo.getContent())
+                 .isDone(toDo.isDone())
                  .build();
     }
 
+    @Transactional
     public void updateToDo(Long id, UpdateToDoRequestDTO updateToDoRequestDTO) {
-        Optional<ToDo> optionalEntity = toDoRepository.findById(id);
-        if(optionalEntity.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
+        ToDo toDo = toDoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("해당 Id를 찿지 못함."));
 
-        ToDo toDo = optionalEntity.get();
         if(updateToDoRequestDTO.isDone()) {
             toDo.completeToDo();
         } else {
             toDo.cancelToDo();
         }
-
-        toDoRepository.save(toDo);
     }
 
     public void deleteToDo(Long id) {
         if(!toDoRepository.existsById(id)) {
-            throw new RuntimeException("해당 id를 찾지 못함.");
+            throw new RuntimeException("해당 Id를 찾지 못함.");
         }
         toDoRepository.deleteById(id);
     }
