@@ -1,8 +1,8 @@
 package com.example.info_coehgns.service;
 
-import com.example.info_coehgns.dto.requestdto.ToDoRequestDTO;
-import com.example.info_coehgns.dto.responsedto.ToDoResponseDTO;
-import com.example.info_coehgns.dto.requestdto.UpdateToDoRequestDTO;
+import com.example.info_coehgns.dto.request.ToDoRequestDTO;
+import com.example.info_coehgns.dto.response.ToDoResponseDTO;
+import com.example.info_coehgns.dto.request.UpdateToDoRequestDTO;
 import com.example.info_coehgns.entity.ToDo;
 import com.example.info_coehgns.repository.ToDoRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +35,7 @@ public class ToDoService {
         toDoRepository.save(toDo);
     }
 
-    public ToDoResponseDTO toDoFindById(int id) {
+    public ToDoResponseDTO toDoFindById(Long id) {
          Optional<ToDo> optionalEntity =  toDoRepository.findById(id);
          if(optionalEntity.isEmpty()) {
              throw new IllegalArgumentException();
@@ -48,7 +48,7 @@ public class ToDoService {
                  .build();
     }
 
-    public void updateToDo(int id, UpdateToDoRequestDTO updateToDoRequestDTO) {
+    public void updateToDo(Long id, UpdateToDoRequestDTO updateToDoRequestDTO) {
         Optional<ToDo> optionalEntity = toDoRepository.findById(id);
         if(optionalEntity.isEmpty()) {
             throw new IllegalArgumentException();
@@ -64,7 +64,7 @@ public class ToDoService {
         toDoRepository.save(toDo);
     }
 
-    public void deleteToDo(int id) {
+    public void deleteToDo(Long id) {
         toDoRepository.deleteById(id);
     }
 

@@ -1,4 +1,4 @@
-package com.example.info_coehgns.dto.requestdto;
+package com.example.info_coehgns.dto.request;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.example.info_coehgns.dto.responsedto;
+package com.example.info_coehgns.dto.response;
 
 import lombok.Builder;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 @Builder
 @Data
 public class ToDoResponseDTO {
-    private int id;
+    private Long id;
     private String content;
     private boolean isDone;
 }

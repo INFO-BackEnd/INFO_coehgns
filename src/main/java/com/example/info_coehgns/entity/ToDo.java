@@ -11,7 +11,7 @@ import lombok.*;
 public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String content;
 

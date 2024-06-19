@@ -1,9 +1,9 @@
 package com.example.info_coehgns.controller;
 
 import com.example.info_coehgns.service.ToDoService;
-import com.example.info_coehgns.dto.requestdto.ToDoRequestDTO;
-import com.example.info_coehgns.dto.responsedto.ToDoResponseDTO;
-import com.example.info_coehgns.dto.requestdto.UpdateToDoRequestDTO;
+import com.example.info_coehgns.dto.request.ToDoRequestDTO;
+import com.example.info_coehgns.dto.response.ToDoResponseDTO;
+import com.example.info_coehgns.dto.request.UpdateToDoRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,7 @@ public class ToDoController {
     }
 
     @GetMapping("{id}")
-    public ToDoResponseDTO toDoFindById(@PathVariable("id") int id) {
+    public ToDoResponseDTO toDoFindById(@PathVariable("id") Long id) {
         return toDoService.toDoFindById(id);
     }
 
@@ -32,12 +32,12 @@ public class ToDoController {
     }
 
     @PutMapping("{id}")
-    public void updateToDo(@PathVariable("id") int id, @RequestBody @Validated UpdateToDoRequestDTO updateToDoRequestDTO) {
+    public void updateToDo(@PathVariable("id") Long id, @RequestBody @Validated UpdateToDoRequestDTO updateToDoRequestDTO) {
         toDoService.updateToDo(id, updateToDoRequestDTO);
     }
 
     @DeleteMapping("{id}")
-    public void deleteToDo(@PathVariable("id") int id) {
+    public void deleteToDo(@PathVariable("id") Long id) {
         toDoService.deleteToDo(id);
     }
 }
