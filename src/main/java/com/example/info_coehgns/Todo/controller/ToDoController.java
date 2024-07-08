@@ -1,9 +1,9 @@
-package com.example.info_coehgns.controller;
+package com.example.info_coehgns.Todo.controller;
 
-import com.example.info_coehgns.service.ToDoService;
-import com.example.info_coehgns.dto.request.ToDoRequestDTO;
-import com.example.info_coehgns.dto.response.ToDoResponseDTO;
-import com.example.info_coehgns.dto.request.UpdateToDoRequestDTO;
+import com.example.info_coehgns.Todo.dto.request.UpdateToDoRequestDTO;
+import com.example.info_coehgns.Todo.service.ToDoService;
+import com.example.info_coehgns.Todo.dto.request.ToDoRequestDTO;
+import com.example.info_coehgns.Todo.dto.response.ToDoResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

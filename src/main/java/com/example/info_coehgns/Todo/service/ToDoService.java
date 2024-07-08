@@ -1,10 +1,10 @@
-package com.example.info_coehgns.service;
+package com.example.info_coehgns.Todo.service;
 
-import com.example.info_coehgns.dto.request.ToDoRequestDTO;
-import com.example.info_coehgns.dto.response.ToDoResponseDTO;
-import com.example.info_coehgns.dto.request.UpdateToDoRequestDTO;
-import com.example.info_coehgns.entity.ToDo;
-import com.example.info_coehgns.repository.ToDoRepository;
+import com.example.info_coehgns.Todo.dto.request.ToDoRequestDTO;
+import com.example.info_coehgns.Todo.dto.request.UpdateToDoRequestDTO;
+import com.example.info_coehgns.Todo.entity.ToDo;
+import com.example.info_coehgns.Todo.dto.response.ToDoResponseDTO;
+import com.example.info_coehgns.Todo.repository.ToDoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

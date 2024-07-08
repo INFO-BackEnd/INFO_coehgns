@@ -1,4 +1,4 @@
-package com.example.info_coehgns.dto.response;
+package com.example.info_coehgns.Todo.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

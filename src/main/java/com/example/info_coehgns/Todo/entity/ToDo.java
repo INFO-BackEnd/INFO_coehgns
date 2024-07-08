@@ -1,5 +1,6 @@
-package com.example.info_coehgns.entity;
+package com.example.info_coehgns.Todo.entity;
 
+import com.example.info_coehgns.User.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,10 @@ public class ToDo {
     private String content;
 
     private boolean isDone;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public void completeToDo() {
         this.isDone = true;
